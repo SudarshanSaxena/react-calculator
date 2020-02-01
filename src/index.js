@@ -5,22 +5,26 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      resultNumber: String,
-      globalString: String
+      resultNumber: "",
+      globalString: ""
     };
     this.resultNumber = "";
     this.keyPress = this.keyPress.bind(this);
   }
-  keyPress = c => {
-    this.setState(() => {
-      return {
-        globalString: this.state.globalString.toString() + c.toString()
-      };
+  clear() {
+    this.setState({ globalString: "", resultNumber: "" });
+  }
+  keyPress(c) {
+    // return this.setState({
+    //   globalString: this.state.globalString.toString() + c.toString()
+    // });
+    this.setState({
+      globalString: this.state.globalString.toString() + c.toString()
     });
-  };
+  }
   execCalc = s => {
     console.log(s.length);
-    s = s.substring(35);
+    //s = s.substring(35);
     if (s.indexOf("+") != -1) {
       var numbers = s.split("+");
       var x = parseInt(numbers[0]);
@@ -55,7 +59,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <label htmlFor=''>{this.state.globalString}</label>
+        <label>{this.state.globalString}</label>
         <br></br>
         <label htmlFor=''>{this.state.resultNumber}</label>
         <br></br>
@@ -73,10 +77,12 @@ export default class App extends Component {
         <br></br>
         <button onClick={() => this.keyPress("0")}>0</button>
         <br></br>
+        <button onClick={() => this.clear()}>C</button>
         <button onClick={() => this.keyPress("+")}>+</button>
         <button onClick={() => this.keyPress("-")}>-</button>
         <button onClick={() => this.keyPress("*")}>x</button>
         <button onClick={() => this.keyPress("/")}>/</button>
+        <br></br>
         <button onClick={() => this.execCalc(this.state.globalString)}>
           =
         </button>
