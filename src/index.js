@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import "./calc.css";
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -63,29 +64,141 @@ export default class App extends Component {
         <br></br>
         <label htmlFor=''>{this.state.resultNumber}</label>
         <br></br>
-        <button onClick={() => this.keyPress("1")}>1</button>
-        <button onClick={() => this.keyPress("2")}>2</button>
-        <button onClick={() => this.keyPress("3")}>3</button>
-        <br></br>
-        <button onClick={() => this.keyPress("4")}>4</button>
-        <button onClick={() => this.keyPress("5")}>5</button>
-        <button onClick={() => this.keyPress("6")}>6</button>
-        <br></br>
-        <button onClick={() => this.keyPress("7")}>7</button>
-        <button onClick={() => this.keyPress("8")}>8</button>
-        <button onClick={() => this.keyPress("9")}>9</button>
-        <br></br>
-        <button onClick={() => this.keyPress("0")}>0</button>
-        <br></br>
-        <button onClick={() => this.clear()}>C</button>
-        <button onClick={() => this.keyPress("+")}>+</button>
-        <button onClick={() => this.keyPress("-")}>-</button>
-        <button onClick={() => this.keyPress("*")}>x</button>
-        <button onClick={() => this.keyPress("/")}>/</button>
-        <br></br>
-        <button onClick={() => this.execCalc(this.state.globalString)}>
-          =
-        </button>
+        <table>
+          <tr>
+            <td>
+              <button
+                className='ui black button bold'
+                onClick={() => this.keyPress("1")}
+              >
+                1
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("2")}
+              >
+                2
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("3")}
+              >
+                3
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui orange button'
+                onClick={() => this.keyPress("+")}
+              >
+                +
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("4")}
+              >
+                4
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("5")}
+              >
+                5
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("6")}
+              >
+                6
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui olive button'
+                onClick={() => this.keyPress("-")}
+              >
+                -
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("7")}
+              >
+                7
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("8")}
+              >
+                8
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("9")}
+              >
+                9
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui blue button'
+                onClick={() => this.keyPress("*")}
+              >
+                x
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button className='ui red button' onClick={() => this.clear()}>
+                C
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui black button'
+                onClick={() => this.keyPress("0")}
+              >
+                0
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui green button'
+                onClick={() => this.execCalc(this.state.globalString)}
+              >
+                =
+              </button>
+            </td>
+            <td>
+              <button
+                className='ui teal button'
+                onClick={() => this.keyPress("/")}
+              >
+                /
+              </button>
+            </td>
+          </tr>
+        </table>
       </div>
     );
   }
